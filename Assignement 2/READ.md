@@ -1,5 +1,6 @@
 # LAB 03
 
+
 1. Using AutoProduction sheet
 
 A. Graph the time series of auto production
@@ -13,6 +14,7 @@ D. Using the graph, forecast the auto sales for the next 6 month
 E. Repeat D, but for the next 24 month
 
 F. Do you trust the forecast results in E. Why or why not?
+
 
 2. Using AutoProduction sheet
 
