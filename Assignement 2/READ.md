@@ -9,13 +9,15 @@
 - Do you trust the forecast results in E. Why or why not?
   
 2. Using AutoProduction sheet
-A. Calculate the 6 month MA
-B. Calculate the 12 month MA
-C. Which MA provide a better trend? Why
+- Calculate the 6 month MA
+- Calculate the 12 month MA
+- Which MA provide a better trend? Why
+
 3. Using the YankeeRuns
-A. Calculate the average runs for all the years. then copy it in column C
-B. Graph the time series of the yearly runs and the average to visualize it
-C. What do you see?
+- Calculate the average runs for all the years. then copy it in column C
+- Graph the time series of the yearly runs and the average to visualize it
+- What do you see?
+  
 4. Using AmazonRevenues sheet
 A. Graph the quarterly revenues
 B. Identify the seasonality in the time series
