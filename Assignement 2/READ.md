@@ -76,3 +76,33 @@ for days 5 - 15
 
 
 # LAB 04
+
+1. Record a macro of your choice. Submit screenshot of macro code and results
+
+2. Write a VBA sub for this problem: A small biz owner needs your help. The owner has 81
+bottles that he must package into cases. Each case (box) can hold dozen bottles. How
+many empty cases (boxes) does the owner need, and how many bottles are left? Use a
+user input box for the owner to input the total number of bottles. Submit 3 screenshots:
+one showing code, one showing user input, one showing the result.
+
+3. Write a VBA sub that extracts the time from the string returned by the Now function and
+outputs it in a message box. Hint: search for VBA string functions
+
+4. Write a VBA sub that automatically sums the rows, columns, and diagonals of a 5 x 5
+magic square. Here is how 5x5 magic square looks.
+
+5. Gen AI Prompt Eng: ask you AI chatbot to solve this problem. Rub AI code. Compare AI
+code with your code. Which is better and why. Hint: it all in the prompt.
+
+6. Write a VBA sub to return a random number between 50 and 90.
+
+7. Redo Problem 2, but write a VBA function. The input to the function is one cell value.
+Submit 3 screenshots: one showing code, one showing Excel sheet input, one showing
+result.
+
+8. Create and use a custom object of your choice in Excel. Your custom object
+must have at least 3 attributes and 3 behaviors. Submit 2 screenshots: one showing code
+and showing results.
+
+
+
