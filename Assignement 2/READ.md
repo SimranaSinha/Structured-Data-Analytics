@@ -19,25 +19,30 @@
 - What do you see?
   
 4. Using AmazonRevenues sheet
-A. Graph the quarterly revenues
-B. Identify the seasonality in the time series
-C. Explain why this seasonality occurs
-D. Create the quarterly MA
-E. What does this MA do?
+- Graph the quarterly revenues
+- Identify the seasonality in the time series
+- Explain why this seasonality occurs
+- Create the quarterly MA
+- What does this MA do?
+
 5. Using Three sheet
-A. Graph the three time series given
-B. Insert a trendline for each
-C. Which time series have more noise than the other and why?
+- Graph the three time series given
+- Insert a trendline for each
+- Which time series have more noise than the other and why?
+
 6. Using ThreeF sheet
-A. Calculate the error columns shown
-B. Which forecast is better than the other? Why?
+- Calculate the error columns shown
+- Which forecast is better than the other? Why?
+
 7. Using E1 sheet
-A. Calculate MAD
-B. Is this forecasting model good or bad? Explain you answer
+- Calculate MAD
+- Is this forecasting model good or bad? Explain you answer
+
 8. Using E2 sheet
-A. Calculate MAD
-B. Calculate MAPE
-C. What is your conclusion?
+- Calculate MAD
+- Calculate MAPE
+- What is your conclusion?
+
 9. Using E3 sheet, calculate SSE
 
 
