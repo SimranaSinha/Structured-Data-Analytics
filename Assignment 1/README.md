@@ -10,8 +10,7 @@ download all three files: “winequality-red.csv”, “winequality-white.csv”
 “winequality.names”. The “.names” file can be opened using any text editor and
 contains attribute description and other relevant information. Open both “.csv” files in
 MS Excel and save them in the native excel format.
-
-2. Clean the data so that all the attributes have their own columns, i.e., 12 columns.
+- Clean the data so that all the attributes have their own columns, i.e., 12 columns.
 Clean the header row so that only the attribute names are displayed, without any
 quotation marks or special characters.
 
