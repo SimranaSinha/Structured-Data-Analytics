@@ -71,11 +71,6 @@ Use the “Antivirus Sales.xlsx” dataset. Create a worksheet and do the follow
 
 3. Create sparklines for each of the categories as seen in class.
 
-Submit the following:
-1. Detailed screenshots showing the results of all the Tasks and questions
-
-2. The Excel files with the answers
-
 - Part III: Gen AI Prompt Engineering
 1. Use the StateSales sheet in the “more charts.xlsx file to create the pareto chart
 we did in class. Ask the bot to explain the 80/20 rule in the resulting chart.
