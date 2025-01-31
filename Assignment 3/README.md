@@ -39,6 +39,7 @@ Task Details:
 - A. Input Data
 - B. AI Rule Input
 - C. Dynamic Classification
+  
 • Use VBA to:
 - Loop through the text data in Column A.
 - Compare each text cell against the rules in Columns C and D.
@@ -82,14 +83,19 @@ o Allow the user to select a range of cells to analyze.
 o The macro should infer the data type and apply transformations based on the following rules:
 - Numeric Data:
 ▪ Identify if the number is an integer, decimal, or percentage.
+
 ▪ Output whether the number is small, medium, or large based on thresholds.
+
 ▪ Calculate its square or square root.
 - Text Data:
 ▪ Reverse the text if it's a single word.
+
 ▪ Count words if it’s a sentence.
+
 ▪ Convert the case (e.g., lowercase to uppercase).
 - Dates:
 ▪ Identify the day of the week.
+
 ▪ Calculate how many days have passed since the date.
 - Empty Cells:
 ▪ Flag them with a message: "Empty Cell – Please Add Data."
