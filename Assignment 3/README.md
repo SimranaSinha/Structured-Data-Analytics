@@ -89,13 +89,10 @@ o The macro should infer the data type and apply transformations based on the fo
 ▪ Calculate its square or square root.
 - Text Data:
 ▪ Reverse the text if it's a single word.
-
 ▪ Count words if it’s a sentence.
-
 ▪ Convert the case (e.g., lowercase to uppercase).
 - Dates:
 ▪ Identify the day of the week.
-
 ▪ Calculate how many days have passed since the date.
 - Empty Cells:
 ▪ Flag them with a message: "Empty Cell – Please Add Data."
