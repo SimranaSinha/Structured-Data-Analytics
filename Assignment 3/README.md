@@ -44,4 +44,64 @@ Task Details:
 - Compare each text cell against the rules in Columns C and D.
 - Assign the appropriate category to Column B.
 
+# LAB 6
 
+1. Using CurrentStaff sheet
+- Write VBA Code that converts Hire date to a short Date. Show result in Column J
+
+2. Using PhoneNumbers sheet
+- Create two macros that sort the phone numbers by Name or department
+- Use buttons to run them
+
+3. Using ProductAttributes sheet
+- Write VBA code that converts the layout shown on top of sheet (shown here also) to the one shown below
+
+4. Using Profits sheet
+- Write VBA code that calculates the totals in column H, averages in column I and the YTD Profits in row 6 and that highlights column H cells in yellow, Average cells in red and cells B6 – BG6 in cyan. Verify your results manually using Excel.
+
+5. Using Names sheet
+- Write VBA code to organize the names list in a better way
+
+6. Using Colors sheet
+- Write VBA code to count the number of cells that the same background color
+
+7. Using Products sheet
+- Write VBA code to add the price of all Mobile and AC that were ordered
+
+8. Using Capitalized sheet
+- Write VBA code to capitalize first letter of each name shown in column A. use input box to prompt users to select cell range. Display results in column B
+
+9. Gen AI and Prompt Engineering:
+**A. Scenario:** 
+Create a VBA macro (sub), call it Intelligent_Data_Analyzer, that analyzes a dynamically selected range of Excel cells and performs contextual operations based on the cell content. The challenge is to design a system where the macro can infer the type of data and apply appropriate transformations or generate intelligent outputs.
+
+**B. Requirements:**
+- Dynamic Range Selection:
+o Allow the user to select a range of cells to analyze.
+- Contextual Analysis:
+o The macro should infer the data type and apply transformations based on the following rules:
+- Numeric Data:
+▪ Identify if the number is an integer, decimal, or percentage.
+▪ Output whether the number is small, medium, or large based on thresholds.
+▪ Calculate its square or square root.
+- Text Data:
+▪ Reverse the text if it's a single word.
+▪ Count words if it’s a sentence.
+▪ Convert the case (e.g., lowercase to uppercase).
+- Dates:
+▪ Identify the day of the week.
+▪ Calculate how many days have passed since the date.
+- Empty Cells:
+▪ Flag them with a message: "Empty Cell – Please Add Data."
+
+**C. Output Results:**
+• Place the processed results in the adjacent column to the right of each
+analyzed cell.
+
+**D. Error Handling:**
+• Gracefully handle unexpected data types or issues (e.g., invalid dates).
+
+**E. Constraints:**
+• The macro must dynamically handle any size range, even if the user
+selects non-contiguous cells.
+• Modular and reusable VBA code for scalability.
