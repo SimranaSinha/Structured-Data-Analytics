@@ -1,0 +1,94 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
+
+```{r}
+# Lab 14_Q2
+getwd()  # Check current directory
+
+# Load the dataset
+load(file="descriptive_gss.Rdata")
+```
+
+```{r}
+# Lab 14_Q1 A
+head(descriptive_gss)
+
+# 1.
+hist(descriptive_gss$hrs1,
+     main= "Basic Histogram of hrs1", 
+     xlab="Hours",
+     ylab="Frequency",
+     col="lightblue",
+     border="black")
+```
+
+
+```{r}
+# Lab 14_Q1 B
+hrsl_mean <- mean(descriptive_gss$hrs1, na.rm=TRUE)
+hrsl_sd <- sd(descriptive_gss$hrs1, na.rm=TRUE)
+
+hist(descriptive_gss$hrs1,
+     main="Histogram of Hrsl with Normal Distribution",
+     xlab="Hours",
+     ylab="Density",
+     col="Lightblue", 
+     border="black", 
+     prob=TRUE)
+
+curve(dnorm(x, mean=hrsl_mean, sd=hrsl_sd),
+      add=TRUE, # add to existing plot 
+      col="red",
+      lwd=2)
+
+legend("topright",
+       legend=c("Histogram", "Normal Distribution"), 
+       fill=c("lightblue", NA), 
+       border-c("black", NA), 
+       col=c(NA, "red"),
+       lwd=c(NA, 2))
+```
+
+```{r}
+# Lab 14_Q1 C
+boxplot(wwwhr ~ sex,
+        data=descriptive_gss,
+        main="Boxplot of Weekly Working Hours by Sex",
+        xlab="Sex",
+        ylab="Weekly Working Hours" ,
+        col=c("lightpink", "lightblue"))
+```
+```{r}
+# Lab 14_Q1 D
+satjob_sex_table <- table(descriptive_gss$satjob7, descriptive_gss$sex)
+
+par(mar = c(5, 4, 4, 10))  
+barplot(satjob_sex_table,
+        main="Bar Chart of Job Satisfaction by Sex", 
+        xlab="Sex",
+        ylab="Count",
+        col=rainbow(nrow(satjob_sex_table)),
+        beside=TRUE,
+        args.legend = list(x = "right",
+                            inset = c(-0.5, 0),
+                            xpd = TRUE),
+        legend.text = rownames (satjob_sex_table))
+
+par (mar = c(5, 4, 4, 2) + 0.1)
+```
+```{r}
+# Lab 14_Q1 E
+mosaicplot(table(descriptive_gss$marital, descriptive_gss$sex),
+           main="Mosaic Plot of Marital Status by Sex",
+           xlab="Sex (Predictor)",
+           ylab="Marital Status (Outcome)",
+           col=rainbow(length(unique(descriptive_gss$marital))),
+           border="white")
+```
+
+
+

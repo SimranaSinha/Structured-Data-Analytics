@@ -1,0 +1,61 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+```{r}
+# Lab 14_Q1A
+year_born <- 1984
+```
+
+```{r}
+# Lab 14_Q1B
+current_year <- 2025
+```
+
+
+```{r}
+# Lab 14_Q1C
+# Compute age
+age <- current_year - year_born
+```
+
+
+```{r}
+# Lab 14_Q1D
+# Check voting eligibility
+is_eligible_to_vote <- age >= 18
+
+# Output results
+age
+is_eligible_to_vote
+```
+
+
+```{r}
+# Lab 14_Q1-2
+# Given pre-tax bill
+pre_tax_bill <- 45.90
+```
+
+```{r}
+# Lab 14_Q1-2A
+# Compute subtotal with Boston tax (8.875%)
+tax_rate <- 8.875 / 100
+subtotal <- pre_tax_bill * (1 + tax_rate)
+```
+
+
+```{r}
+# Lab 14_Q1-2B
+# Compute 15% tip on subtotal (rounded to 2 decimal places)
+tip_15 <- round(subtotal * 0.15, 2)
+```
+
+
+```{r}
+# Lab 14_Q1-2C
+# Compute 20% tip on subtotal (rounded to 2 decimal places)
+tip_20 <- round(subtotal * 0.20, 2)
+```
+
