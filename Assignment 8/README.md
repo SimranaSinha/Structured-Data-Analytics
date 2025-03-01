@@ -1,6 +1,7 @@
 # LAB 15
 
 **I. Importing and Basic**
+
 Use the data in the file “femaleMiceWeights.csv” taken from a study of diabetes. The body weight of mice (in grams) was measured after around two weeks on one of two diets (chow or high fat). These data are in comma separated variable (csv) format.
 - Task:
 1. Load the data into RStudio and answer the following:
