@@ -19,13 +19,14 @@ I. Use the data in the file “femaleMiceWeights.csv” taken from a study of di
 6. To create a vector with the numbers 3 to 7, we can use seq(3,7) or, because they are consecutive, 3:7. View the data and determine what rows are associated with the high fat diet (coded as hf). Use a sequence of indices to extract the vector of weights for the corresponding animals and then use the mean() function to compute their average weight.  Report this mean weight and the code used to get it.
 
 
-II. Working with Vectors in R
+**II. **Working with Vectors in R****
 **Task:**
 1. Create a vector of 100 elements such that the first 20 elements are 1, 2, ..., 20, the next 10 elements are 10, 20, 30, .... 100, and the last 70 elements are 31, 32, ...., 100. Hint: You will need to use the function seq( ).
 
 2. Show the contents of the vector.
 
-III. Cleaning and Transformation
+**III. Cleaning and Transformation**
+
 The HERS data are a simple random sample of n=2763 observations from the HERSstudy. The HERS study was a randomized clinical trial of hormone therapy (estrogen plus
 progestin)
 **Task:**
