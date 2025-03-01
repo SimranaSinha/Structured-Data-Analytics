@@ -2,7 +2,7 @@
 - This lab consists of 3 questions that have a few sub questions. You are required to create an R
 Notebook that answers all the questions. Add explanations and comments wherever required.
 
-- I. Use the data in the file “femaleMiceWeights.csv” taken from a study of diabetes. The body weight of mice (in grams) was measured after around two weeks on one of two diets (chow or high fat). These data are in comma separated variable (csv) format.
+I. Use the data in the file “femaleMiceWeights.csv” taken from a study of diabetes. The body weight of mice (in grams) was measured after around two weeks on one of two diets (chow or high fat). These data are in comma separated variable (csv) format.
 - Task:
 1. Load the data into RStudio and answer the following:
 (a) Is mice an R object of class data.frame or matrix, and how can you tell?
