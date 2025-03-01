@@ -1,6 +1,4 @@
 # LAB 15
-- This lab consists of 3 questions that have a few sub questions. You are required to create an R
-Notebook that answers all the questions. Add explanations and comments wherever required.
 
 I. Use the data in the file “femaleMiceWeights.csv” taken from a study of diabetes. The body weight of mice (in grams) was measured after around two weeks on one of two diets (chow or high fat). These data are in comma separated variable (csv) format.
 - Task:
@@ -48,11 +46,13 @@ Hint: Use the tidyverse library
 IV. Gen AI Prompt Engineering: You are a data analyst working for an e-commerce company. Your manager provides you with a dataset containing customer transaction records. Using sample_transactions.xlsx, your task is to analyze the dataset and
 - Generate insights by performing the following tasks:
 1. Data Structures:
+
 a. Store the dataset using an appropriate data structure (list, dictionary, DataFrame, etc.).
 
 b. Write a function to find the top 3 most frequently purchased product categories.
 
 2. Control Structures:
+   
 a. Write a loop to calculate the total revenue generated from each product category.
 
 b. Use conditional statements to analyze the most preferred payment method.
@@ -62,3 +62,39 @@ i. The difference between them
 ii. Which one is better to use over other ones
 iii. The best use scenario for each one
 iv. Any other info you find
+
+# Lab 16
+
+I. Use the countries.csv data. Create a Shiny App with the following:
+
+1. Read the countries.csv file, save it in a data frame called “countries”
+
+2. Use fluidPage() for the UI, with the Title Panel “Country Data”.
+
+3. Next, change the input type to selectInput and name the input “country”, make the label say “Countries”, and include the options to select by
+adding c(countries$Country) because in the csv file, the name of the countries are under the Country column. Preselect China, by adding selected = “China”, and we won’t allow multiple selections by adding multiple = FALSE.
+
+4. Create a plot (mainPanel) where the x axis is the population of the country and the y axis is the per capita GDP of the country. The title of the plot should be “Population and GDP”
+   
+5. Use this function to highlight the country selected: col=ifelse(countries$Country==country, “red”, “black”)
+
+II. Use the france.csv data. The goal is to create a dashboard using Flexdashboard 
+a) Title and Output Format
+
+b) Required Packages and Libraries
+
+c) Loading the data
+
+d) First row with 4 columns showing map of France, GDP Numbers, Foreign Direct Investment and Labor Force in Millions respectively.
+- Add the GDP, Foreign Direct Investment and Labor Force visualizations to the dashboard. 
+
+6. Gen AI  Engineering: You are a data analyst for a company that sells products through an e-commerce platform. Your task is to create an interactive dashboard in R using the Shiny framework to help the company's stakeholders visualize and explore sales data. Using the sales_data.txt, create a dashboard with the following features:
+i. Overview: Display total sales, total profit, and average sales per day.
+ii. Product Category: Allow users to select a product category and display:
+iii. Total sales and profit for the selected category.
+iv. Top 5 products by sales within the selected category.
+v. Date Range: Allow users to select a date range and display:
+vi. Total sales and profit for the selected date range.
+vii. Daily sales and profit trend for the selected date range
+
+
