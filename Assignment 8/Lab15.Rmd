@@ -1,0 +1,253 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
+
+```{r}
+mice <- read.csv("femaleMiceWeights.csv")
+```
+
+```{r}
+#Lab 15_1A
+class(mice)
+```
+
+```{r}
+#Lab 15_1C
+dim(mice)
+```
+
+
+```{r}
+#Lab 15_2
+colnames(mice)
+```
+
+
+```{r}
+#Lab 15_3
+mice[12, 2]
+```
+
+
+```{r}
+#Lab 15_4
+mice$Bodyweight[11]
+```
+
+
+```{r}
+#Lab 15_5
+length(mice$Bodyweight)
+```
+
+
+```{r}
+#Lab 15_6
+hf_weights <- mice$Bodyweight[mice$Diet == "hf"]
+mean(hf_weights)
+```
+
+
+```{r}
+#Lab 15_II 1
+# First 20 elements: 1 to 20
+part1 <- seq(1, 20)
+
+# Next 10 elements: 10, 20, ..., 100
+part2 <- seq(10, 100, by=10)
+
+# Last 70 elements: 31 to 100
+part3 <- seq(31, 100)
+
+# Combine all parts into one vector
+my_vector <- c(part1, part2, part3)
+
+```
+
+```{r}
+#Lab 15_II 2
+print(my_vector)
+```
+
+
+```{r}
+# Lab 15_III
+load("hersdata.Rdata")  # Ensure the file is in your working directory
+```
+
+
+```{r}
+# Lab 15_III 2
+class(hersdata$drinkany)  # Check current class
+hersdata$drinkany <- as.factor(hersdata$drinkany)  # Convert to factor
+class(hersdata$drinkany)  # Verify conversion
+```
+
+
+```{r}
+# Lab 15_III 3
+# Install package 
+library(summarytools)  # Load package
+
+# Create a one-way frequency table
+freq(hersdata$drinkany)
+
+# Count missing values
+sum(is.na(hersdata$drinkany))
+```
+
+
+```{r}
+# Lab 15_ III 4
+hersdata$drinkany01 <- ifelse(hersdata$drinkany == "no", 0,
+                              ifelse(hersdata$drinkany == "yes", 1, NA))
+
+# Check the conversion
+table(hersdata$drinkany, hersdata$drinkany01, useNA = "always")
+```
+
+install.packages("tidyverse", dependencies = TRUE)
+
+```{r}
+# Lab 15_III 5
+library(tidyverse)  # Load package
+
+# Now try the corrected approach
+mytiny <- hersdata %>%
+  # First filter for observations where weight > 125
+  filter(weight > 125) %>%
+  # Then select only the specified variables
+  select(HT, LDL, SBP)
+
+# Lab 15_III 6 
+print(mytiny)
+```
+
+
+```{r}
+# Lab 15_Gen AI
+# Loading the dataset
+# Assuming the file is named 'sample_transactions.csv' and is in your working directory
+transactions <- read.csv("sample_transactions.csv", stringsAsFactors = FALSE)
+```
+
+
+```{r}
+# Lab 15_Gen AI 1a
+
+# Display the data frame structure
+str(transactions)
+```
+
+
+```{r}
+# Lab 15_Gen AI 1B
+#  Write a function to find the top 3 most frequently purchased product categories
+find_top_categories <- function(data) {
+  # Calculate the frequency of each product category
+  category_counts <- table(data$Product.Category)
+  
+  # Sort in descending order
+  sorted_categories <- sort(category_counts, decreasing = TRUE)
+  
+  # Return the top 3 (or less if there are fewer categories)
+  top_n <- min(3, length(sorted_categories))
+  return(head(sorted_categories, top_n))
+}
+
+# Call the function to find top 3 categories
+top_categories <- find_top_categories(transactions)
+print("Top 3 most frequently purchased product categories:")
+print(top_categories)
+```
+
+
+```{r}
+# Lab 15_Gen AI 2A
+# 2. Control Structures
+# Calculate the total revenue from each product category using a loop
+calculate_revenue_by_category <- function(data) {
+  # Get unique product categories
+  categories <- unique(data$Product.Category)
+  
+  # Initialize an empty list to store results
+  revenue_by_category <- list()
+  
+  # Loop through each category
+  for (category in categories) {
+    # Filter transactions for the current category
+    category_data <- data[data$Product.Category == category, ]
+    
+    # Calculate revenue for each transaction (Quantity * Price)
+    transaction_revenue <- category_data$Quantity.Purchased * category_data$Price.per.Unit
+    
+    # Sum the revenue for the category
+    total_revenue <- sum(transaction_revenue)
+    
+    # Store in the list
+    revenue_by_category[[category]] <- total_revenue
+  }
+  
+  return(revenue_by_category)
+}
+
+# Call the function to calculate revenue by category
+revenue_by_category <- calculate_revenue_by_category(transactions)
+print("Total revenue generated from each product category:")
+print(revenue_by_category)
+```
+
+
+```{r}
+# Lab 15_Gen AI 2B
+# Analyze the most preferred payment method using conditional statements
+analyze_payment_methods <- function(data) {
+  # Calculate the frequency of each payment method
+  payment_counts <- table(data$Payment.Method)
+  
+  # Find the most common payment method
+  most_preferred <- names(which.max(payment_counts))
+  
+  # Conditional analysis based on payment method popularity
+  result <- list(
+    counts = payment_counts,
+    most_preferred = most_preferred,
+    analysis = character(0)
+  )
+  
+  if (most_preferred == "Credit Card") {
+    result$analysis <- "Credit Card is the most popular payment method, suggesting customers prefer traditional payment options."
+  } else if (most_preferred == "PayPal") {
+    result$analysis <- "PayPal is the most popular payment method, indicating a preference for digital wallet solutions."
+  } else if (most_preferred == "Debit Card") {
+    result$analysis <- "Debit Card is the most popular payment method, suggesting customers prefer direct bank payments."
+  } else if (most_preferred == "Crypto") {
+    result$analysis <- "Cryptocurrency is the most popular payment method, indicating customers are embracing new financial technologies."
+  } else {
+    result$analysis <- paste(most_preferred, "is the most popular payment method.")
+  }
+  
+  return(result)
+}
+
+# Call the function to analyze payment methods
+payment_analysis <- analyze_payment_methods(transactions)
+print("Payment method analysis:")
+print(payment_analysis$counts)
+print(paste("Most preferred payment method:", payment_analysis$most_preferred))
+print(payment_analysis$analysis)
+
+# Additional summary statistics for the dataset
+print("Summary of transaction data:")
+summary_stats <- list(
+  total_transactions = nrow(transactions),
+  total_revenue = sum(transactions$Quantity.Purchased * transactions$Price.per.Unit),
+  average_order_value = mean(transactions$Quantity.Purchased * transactions$Price.per.Unit),
+  total_items_sold = sum(transactions$Quantity.Purchased)
+)
+print(summary_stats)
+```
+

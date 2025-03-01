@@ -1,0 +1,124 @@
+---
+title: "France Economic Report"
+output:
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    social: menu
+    theme: lumen
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(ggplot2)
+library(readr)
+library(WDI)
+library(dplyr)
+library(stats)
+library(visreg)
+library(RColorBrewer)
+library(stargazer)
+library(kableExtra)
+library(maps)
+```
+
+```{r, echo=FALSE}
+gdpFdiLabor <- read_csv("france.csv", show_col_types = FALSE)
+```
+
+Row {data-height=150}
+-----------------------------------------------------------------------
+ 
+###
+
+```{r, echo=FALSE}
+france <- map_data("world", region = "France")
+ggplot(data=france, aes(x = long, y = lat, group = group)) +
+  geom_polygon(fill = "white", color="black")+
+  coord_fixed(1.4) +
+  theme_void()
+```
+
+### Gross Domestic Product (Billions USD) in 2017
+ 
+```{r}
+valueBox(2860, icon = "fa-euro-sign", color = "success")
+```
+
+### Foreign Direct Investment (Billions USD) in 2017
+ 
+```{r}
+valueBox(37, icon = "fa-arrow-circle-up", color = "info")
+```
+
+### Labor Force (Millions) in 2017
+ 
+```{r}
+valueBox(30, icon = "fa-user-tie", color = "primary")
+```
+
+Row
+-----------------------------------------------------------------------
+ 
+### Gross Domestic Product (1990-2017)
+
+```{r}
+gdp_data <- gdpFdiLabor %>%
+  select(year, gdp)
+ 
+ggplot(gdp_data, aes(x = year, y = gdp)) +
+  geom_line(color = "#66c2a5", size = 1) +
+  geom_point(color = "#66c2a5", size = 2) +
+  scale_y_continuous(labels = scales::scientific) +
+  labs(x = "Year", y = "Gross Domestic Product") +
+  theme_minimal() +
+  theme(
+    panel.grid.major = element_line(color = "#f0f0f0"),
+    panel.grid.minor = element_line(color = "#f0f0f0"),
+    axis.title.y = element_text(angle = 90),
+    plot.title = element_text(size = 14, hjust = 0)
+  ) +
+  ggtitle("Gross Domestic Product (1990-2017)")
+```
+
+### Foreign Direct Investment (1990-2017)
+ 
+```{r}
+fdi_data <- gdpFdiLabor %>%
+  select(year, fdi)
+ 
+ggplot(fdi_data, aes(x = year, y = fdi)) +
+  geom_line(color = "#80b1d3", size = 1) +
+  geom_point(color = "#80b1d3", size = 2) +
+  scale_y_continuous(labels = scales::scientific) +
+  labs(x = "Year", y = "Foreign Direct Investments") +
+  theme_minimal() +
+  theme(
+    panel.grid.major = element_line(color = "#f0f0f0"),
+    panel.grid.minor = element_line(color = "#f0f0f0"),
+    axis.title.y = element_text(angle = 90),
+    plot.title = element_text(size = 14, hjust = 0)
+  ) +
+  ggtitle("Foreign Direct Investment (1990-2017)")
+```
+
+### Labor Force (1990-2017)
+ 
+```{r}
+labor_data <- gdpFdiLabor %>%
+  select(year, laborForce)
+ 
+ggplot(labor_data, aes(x = year, y = laborForce)) +
+  geom_line(color = "#4298b5", size = 1) +
+  geom_point(color = "#4298b5", size = 2) +
+  scale_y_continuous(labels = scales::scientific) +
+  labs(x = "Year", y = "Labor Force") +
+  theme_minimal() +
+  theme(
+    panel.grid.major = element_line(color = "#f0f0f0"),
+    panel.grid.minor = element_line(color = "#f0f0f0"),
+    axis.title.y = element_text(angle = 90),
+    plot.title = element_text(size = 14, hjust = 0)
+  ) +
+  ggtitle("Labor Force (1990-2017)")
+```
