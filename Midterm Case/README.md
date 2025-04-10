@@ -1,4 +1,5 @@
-- There are many main tasks in this midterm case that has been assigned to you:
+There are many main tasks in this midterm case that has been assigned to you:
+
   
 1. Data Collection (in MS Excel)
 - Download the dataset from canvas into Excel
