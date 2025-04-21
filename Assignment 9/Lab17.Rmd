@@ -1,0 +1,233 @@
+---
+title: "R Notebook"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+```{r}
+# Lab 17_1
+data(cars)  # Load built-in dataset
+x <- cars$speed  # Independent variable (speed)
+y <- cars$dist   # Dependent variable (stopping distance)
+```
+
+```{r}
+#Lab 17_A
+x_mean <- mean(x)
+y_mean <- mean(y)
+
+Sxx <- sum((x - x_mean)^2)
+Sxy <- sum((x - x_mean) * (y - y_mean))
+Syy <- sum((y - y_mean)^2)
+
+Sxx
+Sxy
+Syy
+```
+
+
+```{r}
+#Lab 17_B
+Beta1 <- Sxy / Sxx  # Slope
+Beta0 <- y_mean - Beta1 * x_mean  # Intercept
+
+Beta0
+Beta1
+```
+
+
+```{r}
+#Lab 17_C
+y_pred_8 <- Beta0 + Beta1 * 8
+y_pred_8
+```
+
+
+```{r}
+#Lab 17_D
+actual_y_8 <- cars[5, "dist"]
+residual_8 <- actual_y_8 - y_pred_8
+residual_8
+```
+
+
+```{r}
+model <- lm(dist ~ speed, data = cars)
+summary(model)
+```
+
+
+```{r}
+# Lab 17_2
+data(faithful)  # Load built-in dataset
+```
+
+
+```{r}
+# Lab 17_2A
+plot(faithful$eruptions, faithful$waiting,
+     xlab = "Eruption Duration (mins)",
+     ylab = "Waiting Time (mins)",
+     main = "Eruption Duration vs. Waiting Time",
+     col = "blue", pch = 16)
+
+```
+
+
+```{r}
+# Lab 17_2B
+correlation <- cor(faithful$eruptions, faithful$waiting)
+correlation
+```
+
+
+```{r}
+# Lab 17_2C
+# Fit a linear regression model
+lab_model <- lm(waiting ~ eruptions, data = faithful)
+```
+
+
+```{r}
+# Lab 17_2D
+summary(lab_model)
+```
+
+```{r}
+# Lab 17_2E
+new_data <- data.frame(eruptions = 3.667)
+predicted_waiting <- predict(lab_model, new_data)
+predicted_waiting
+```
+
+
+```{r}
+# Lab 17_3A
+euclidean_distance <- function(v1, v2) {
+  # Check if vectors are of the same length
+  if (length(v1) != length(v2)) {
+    stop("Error: Vectors must be of the same length.")
+  }
+  
+  # Compute Euclidean distance
+  distance <- sqrt(sum((v1 - v2)^2))
+  return(distance)
+}
+```
+
+
+```{r}
+# Lab 17_3B
+# Define the vectors
+v1 <- c(10.09, 2.33, 9.71, 101.46)
+v2 <- c(12.21, 9.41, 7.65, 163.12)
+
+# Compute the Euclidean distance
+distance_result <- euclidean_distance(v1, v2)
+distance_result
+```
+
+```{r}
+# Lab 17_4
+# Load the dataset
+vehicle_data <- read.csv("vehicle_info.csv")
+
+# Browse the data
+head(vehicle_data)
+```
+
+
+```{r}
+# Lab 17_4A
+# View structure and dimensionality
+str(vehicle_data)
+dim(vehicle_data)
+```
+
+```{r}
+#lab 17_4B
+# Identify the label variable for classification
+names(vehicle_data)
+cat("\nUnique vales in the 'origin'column:\n")
+table(vehicle_data$origin)
+```
+
+
+```{r}
+#lab 17_4C
+# Function to normalize values between 0 and 1
+normalize <- function(x) {
+  return((x - min(x)) / (max(x) - min(x)))
+}
+
+# Create a copy of the dataframe for normalization
+vehicle_data_norm <- vehicle_data
+
+# Normalize all numeric columns (exclude the "origin" column)
+vehicle_data_norm[, 2:ncol(vehicle_data)] <- lapply(vehicle_data[, 2:ncol(vehicle_data)], normalize)
+
+# Check the normalized data
+head(vehicle_data_norm)
+```
+
+
+```{r}
+#Lab 17_4D
+# Load required libraries
+library(caret)
+library(ggplot2)
+
+# Set seed for reproducibility
+set.seed(123)
+
+# Stratified sampling to maintain class distribution
+train_index <- createDataPartition(vehicle_data_norm$origin, 
+                                  p = 0.8, 
+                                  list = FALSE, 
+                                  times = 1)
+
+# Create training and test sets
+train_data <- vehicle_data_norm[train_index, ]
+test_data <- vehicle_data_norm[-train_index, ]
+
+# Check distribution of classes in both sets
+table(train_data$origin)
+table(test_data$origin)
+```
+
+
+```{r}
+# Lab 17_4E
+# Load required package
+library(class)
+
+# Prepare training and test sets
+train_labels <- train_data$origin
+test_labels <- test_data$origin
+
+# Remove the label column from the feature sets
+train_features <- train_data[, -1]  # Excluding the "origin" column
+test_features <- test_data[, -1]    # Excluding the "origin" column
+
+# Build KNN model with k=9
+knn_pred <- knn(train = train_features, 
+                test = test_features, 
+                cl = train_labels, 
+                k = 9)
+```
+
+
+```{r}
+# Lab 17_4F
+# Load required library
+library(caret)
+
+# Create confusion matrix
+conf_matrix <- confusionMatrix(data = as.factor(knn_pred), 
+                              reference = as.factor(test_labels))
+
+# Display confusion matrix
+conf_matrix
+```
+
